@@ -1,5 +1,5 @@
 package cartes;
 
-public class Carte {
+public abstract class Carte {
 
 }

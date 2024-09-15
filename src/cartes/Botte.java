@@ -7,16 +7,27 @@ public class Botte extends Probleme{
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public Type getType() {
-		// TODO Auto-generated method stub
-		return super.getType();
-	}
-	
-	@Override
-	public void setType(Type type) {
-		// TODO Auto-generated method stub
-		super.setType(type);
-	}
+	 @Override
+	    public String toString() {
+		 	Type type = super.getType(); 
+	        switch (type) {
+	        
+	        case FEU: 
+	        	return "VehiculePrioritaire"; 
+	        	
+	        case ESSENCE:
+	        	return "CiterneEssence"; 
+	        
+	        case CREVAISON:
+	        	return "Increvavcble"; 
+	        
+	        
+	        case ACCIDENT: 
+	        	return "AsDuVolant"; 
+	        
+	        default:
+	        	return "unknowCard"; 
+	        }
+	    }
 	
 }
