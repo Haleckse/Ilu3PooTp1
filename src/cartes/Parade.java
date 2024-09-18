@@ -7,6 +7,7 @@ public class Parade extends Bataille{
 		// TODO Auto-generated constructor stub
 	}
 	
+
 	@Override
     public String toString() {
 	 	Type type = super.getType(); 
@@ -16,10 +17,10 @@ public class Parade extends Bataille{
         	return "FeuVert"; 
         	
         case ESSENCE:
-        	return "Essence"; 
+        	return "BidonEssence"; 
         
         case CREVAISON:
-        	return "RoueDeSecour"; 
+        	return "RoueDeSecours"; 
         
         
         case ACCIDENT: 

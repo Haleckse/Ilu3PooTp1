@@ -19,7 +19,7 @@ public class Botte extends Probleme{
 	        	return "CiterneEssence"; 
 	        
 	        case CREVAISON:
-	        	return "Increvavcble"; 
+	        	return "Increvable"; 
 	        
 	        
 	        case ACCIDENT: 
