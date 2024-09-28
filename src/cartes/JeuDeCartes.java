@@ -1,14 +1,12 @@
 package cartes;
 
 public class JeuDeCartes {
+
+	private Configuration[] configurations = new Configuration[19]; 
 	
 	public JeuDeCartes() {
 		insererCartes();
 	}
-
-
-
-	private Configuration[] configurations = new Configuration[19]; 
 	
 	public String affichageJeuCarte() {
 		StringBuilder maChaine = new StringBuilder(); 
@@ -45,25 +43,8 @@ public class JeuDeCartes {
 		configurations[15] =  new Configuration(new Botte(Type.FEU), 1);
 		configurations[16] =  new Configuration(new Botte(Type.ESSENCE), 1);
 		configurations[17] =  new Configuration(new Botte(Type.CREVAISON), 1);
-		configurations[18] =  new Configuration(new Botte(Type.ACCIDENT), 1);
-
-
-
-
-
-
-
-
-
-
-
-		
-		
-		
 		
 	}
-	
-	
 	
 	private static class Configuration{
 		private Carte carte; 
