@@ -5,4 +5,9 @@ public class DebutLimite extends Limite{
     public String toString() {
 	 	return "DebutDeLimite"; 
     }
+	@Override 
+	public boolean equals(Carte carte) {
+		if (carte instanceof DebutLimite dl) return true;
+		return false; 
+	}
 }

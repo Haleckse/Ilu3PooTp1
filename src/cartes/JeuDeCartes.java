@@ -14,9 +14,23 @@ public class JeuDeCartes {
 			System.out.println(configurations[i].getNbExemplaire() + " " + configurations[i].getCarte());
 			maChaine.append(configurations[i].getNbExemplaire() + " " + configurations[i].getCarte()); 
 		}
-		return maChaine.toString();
-		
+		return maChaine.toString();	
 	}
+	
+	
+	public Carte[] creerSabot() {
+		Carte[] sabot = new Carte[106]; 
+		int nbCartes = 0; 
+		
+		for(Configuration jeu : configurations) {
+			for (int i = 0; i < jeu.getNbExemplaire(); i++) {
+				sabot[nbCartes] = jeu.getCarte(); 
+				nbCartes ++; 
+			}
+		}
+		return sabot; 
+	}
+	
 	
 	public void insererCartes() {
 		configurations[0] =  new Configuration(new Borne(25), 10); 
@@ -43,6 +57,8 @@ public class JeuDeCartes {
 		configurations[15] =  new Configuration(new Botte(Type.FEU), 1);
 		configurations[16] =  new Configuration(new Botte(Type.ESSENCE), 1);
 		configurations[17] =  new Configuration(new Botte(Type.CREVAISON), 1);
+		configurations[18] =  new Configuration(new Botte(Type.ACCIDENT), 1);
+
 		
 	}
 	

@@ -30,4 +30,10 @@ public class Parade extends Bataille{
         	return "unknowCard"; 
         }
     }
+	
+	@Override 
+	public boolean equals(Carte carte) {
+		if (carte instanceof Bataille bataille) return type.equals(bataille.getType());
+		return false; 
+	}
 }

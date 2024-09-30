@@ -29,6 +29,13 @@ public class Attaque extends Bataille{
         	return "unknowCard"; 
         }
     }
+	
+	@Override
+	public boolean equals(Carte carte) {
+		if (carte instanceof Attaque attaque) return type.equals(attaque.type);
+		return false; 
+	}
+	
 
 }
 

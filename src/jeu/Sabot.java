@@ -7,10 +7,10 @@ import java.util.NoSuchElementException;
 import cartes.Carte;
 
 public class Sabot implements Iterable<Carte> {
-    private Carte[] cartes; // tableau de cartes
-    private int nbCartes; // nombre de cartes dans le sabot
-    private int capaciteMax; // capacité maximale du sabot
-    private int nombreOperation = 0; // pour gérer les modifications concurrentes
+    private Carte[] cartes;
+    private int nbCartes; 
+    private int capaciteMax; 
+    private int nombreOperation = 0; 
 
     public Sabot(Carte[] cartes) {
         this.cartes = cartes;
@@ -18,41 +18,39 @@ public class Sabot implements Iterable<Carte> {
         this.capaciteMax = cartes.length;
     }
 
-    // Méthode pour obtenir les cartes du sabot
     public Carte[] getCartes() {
         return cartes;
     }
 
-    // Méthode pour obtenir le nombre de cartes restantes dans le sabot
+    
     public int getNbCartes() {
         return nbCartes;
     }
 
-    // Vérifier si le sabot est vide
+
     public boolean estVide() {
         return nbCartes == 0;
     }
 
-    // Ajouter une carte au sabot
+
     public void ajouterCarte(Carte carte) throws Exception {
         if (nbCartes >= capaciteMax) {
-            throw new Exception("Capacité maximale du sabot atteinte.");
+            throw new Exception("");
         }
-        cartes[nbCartes] = carte; // Ajouter la carte à la fin
-        nbCartes++; // Incrémenter le nombre de cartes
-        nombreOperation++; // Mise à jour du compteur pour gérer les modifications
+        cartes[nbCartes] = carte; 
+        nbCartes++; 
+        nombreOperation++;
     }
 
-    // Piocher la première carte du sabot
+    
     public Carte piocher() {
         Iterator<Carte> it = this.iterator();
-
-        // Vérifie s'il y a encore des cartes à piocher
         if (it.hasNext()) {
-            Carte premiereCarte = it.next(); // Obtenir la première carte
-            it.remove(); // Supprimer la première carte
-            return premiereCarte; // Retourner la carte piochée
-        } else {
+            Carte premiereCarte = it.next(); 
+            it.remove(); 
+            return premiereCarte; 
+        } 
+        else {
             throw new NoSuchElementException("Le sabot est vide, impossible de piocher.");
         }
     }
@@ -75,7 +73,7 @@ public class Sabot implements Iterable<Carte> {
 
         
         public Carte next() {
-            verifConcurence(); 
+          
             if (hasNext()) {
                 Carte carte = cartes[indice]; 
                 indice++; 
@@ -88,7 +86,7 @@ public class Sabot implements Iterable<Carte> {
       
         public void remove() {
             if (!nextEffectue) {
-                throw new IllegalStateException("`next()` doit être appelé avant de pouvoir supprimer.");
+                throw new IllegalStateException("");
             }
             for (int i = indice - 1; i < nbCartes - 1; i++) {
                 cartes[i] = cartes[i + 1]; 
@@ -103,7 +101,7 @@ public class Sabot implements Iterable<Carte> {
       
         private void verifConcurence() {
             if (nombreOperationEsperer != nombreOperation) {
-                throw new ConcurrentModificationException("Le sabot a été modifié de manière concurrente.");
+                throw new ConcurrentModificationException("concurent");
             }
         }
     }
