@@ -1,6 +1,5 @@
 package testsFonctionnels;
 import jeu.Sabot;
-import cartes.Borne;
 import cartes.Carte;
 import cartes.JeuDeCartes;
 
