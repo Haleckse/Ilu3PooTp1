@@ -1,5 +1,11 @@
 package jeu;
 
-public class Jeu {
+import cartes.JeuDeCartes;
 
+public class Jeu {
+	private Sabot sabot; 
+	
+	public Jeu(JeuDeCartes jeuDeCarte) {
+		
+	}
 }

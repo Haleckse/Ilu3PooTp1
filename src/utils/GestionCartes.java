@@ -91,32 +91,47 @@ public class GestionCartes {
         return true;
     }
     
+//    public static <T> List<T> rassembler(List<T> list) {
+//        // Créer une map pour stocker la fréquence de chaque élément
+//        Map<T, Integer> elementCountMap = new HashMap<>();
+//        List<T> result = new ArrayList<>();
+//
+//        // Parcourir la liste d'origine et compter la fréquence de chaque élément
+//        for (T element : list) {
+//            elementCountMap.put(element, elementCountMap.getOrDefault(element, 0) + 1);
+//        }
+//
+//        // Parcourir la liste d'origine à nouveau pour maintenir l'ordre d'apparition
+//        for (T element : list) {
+//            // Si l'élément est dans la map, ajouter toutes ses occurrences
+//            if (elementCountMap.containsKey(element)) {
+//                int count = elementCountMap.get(element);
+//                for (int i = 0; i < count; i++) {
+//                    result.add(element);
+//                }
+//                // Retirer l'élément de la map pour ne pas le traiter à nouveau
+//                elementCountMap.remove(element);
+//            }
+//        }
+//
+//        // Retourner la liste rassemblée
+//        return result;
+//    }
     public static <T> List<T> rassembler(List<T> list) {
-        // Créer une map pour stocker la fréquence de chaque élément
-        Map<T, Integer> elementCountMap = new HashMap<>();
-        List<T> result = new ArrayList<>();
+    	List<T> listeRassembler= new ArrayList<>();
 
-        // Parcourir la liste d'origine et compter la fréquence de chaque élément
-        for (T element : list) {
-            elementCountMap.put(element, elementCountMap.getOrDefault(element, 0) + 1);
-        }
-
-        // Parcourir la liste d'origine à nouveau pour maintenir l'ordre d'apparition
-        for (T element : list) {
-            // Si l'élément est dans la map, ajouter toutes ses occurrences
-            if (elementCountMap.containsKey(element)) {
-                int count = elementCountMap.get(element);
-                for (int i = 0; i < count; i++) {
-                    result.add(element);
-                }
-                // Retirer l'élément de la map pour ne pas le traiter à nouveau
-                elementCountMap.remove(element);
+        for(ListIterator<T> iter = list.listIterator();iter.hasNext();) {
+            T elem = iter.next();
+            if (listeRassembler.contains(elem)){
+                listeRassembler.add(listeRassembler.lastIndexOf(elem), elem);
+            } else {
+                listeRassembler.add(elem);
             }
         }
 
-        // Retourner la liste rassemblée
-        return result;
+        return listeRassembler;
     }
+
     
     public static <T> boolean verifierRassemblement(List <T> list) {
     	 ListIterator<T> iterator1 = list.listIterator();
